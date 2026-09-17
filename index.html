@@ -5,9 +5,9 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
 ---
 
 <section class="hero-section">
-  <div class="location-badge">📍 Downtown Los Angeles, CA</div>
+  <div class="location-badge" id="tableBadge">📍 Downtown Los Angeles, CA</div>
   <h1>Smash Burgers. <span>Zero Gimmicks.</span></h1>
-  <p>Fresh-pressed 100% Angus beef, house-made secret sauce, and crispy golden fries delivered hot to your door or ready for quick pickup.</p>
+  <p>Fresh-pressed 100% Angus beef, house-made secret sauce, and crispy golden fries. Order from your table for fast counter pickup.</p>
 </section>
 
 <!-- STICKY CATEGORY FILTER BAR -->
@@ -27,17 +27,10 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
     
     <div class="menu-grid">
       <!-- Item 1 -->
-      <div class="menu-card" data-category="burgers">
+      <div class="menu-card" data-category="burgers" data-name="The Cali Double" data-price="12.99">
         <div class="card-img-wrapper">
           <span class="badge">Best Seller</span>
-          <img 
-            src="{{ '/assets/images/1.jpg' | relative_url }}" 
-            alt="The Cali Double smash burger" 
-            class="stacked-image"
-            width="1200"
-            height="800"
-            loading="lazy"
-          >
+          <img src="{{ '/assets/images/1.jpg' | relative_url }}" alt="The Cali Double" class="stacked-image" width="1200" height="800" loading="lazy">
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -47,23 +40,16 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Two crispy edge smash patties, double American cheese, caramelized onions, and signature crush sauce on a toasted brioche bun.</p>
           <div class="card-footer">
             <span class="dietary-tag">Halal Available</span>
-            <button class="add-btn" onclick="incrementCart()" aria-label="Add The Cali Double to cart">+</button>
+            <button class="add-btn" onclick="addToCart('The Cali Double', 12.99)">+</button>
           </div>
         </div>
       </div>
 
       <!-- Item 2 -->
-      <div class="menu-card" data-category="burgers">
+      <div class="menu-card" data-category="burgers" data-name="Habanero Heat Wave" data-price="13.50">
         <div class="card-img-wrapper">
           <span class="badge">Spicy</span>
-          <img 
-            src="{{ '/assets/images/2.jpg' | relative_url }}" 
-            alt="Habanero Heat Wave smash burger" 
-            class="stacked-image"
-            width="1200"
-            height="800"
-            loading="lazy"
-          >
+          <img src="{{ '/assets/images/2.jpg' | relative_url }}" alt="Habanero Heat Wave" class="stacked-image" width="1200" height="800" loading="lazy">
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -73,22 +59,15 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Smash patty, pepper jack cheese, fire-roasted jalapeños, crispy onions, and ghost pepper aioli.</p>
           <div class="card-footer">
             <span class="dietary-tag">Spicy 🌶️</span>
-            <button class="add-btn" onclick="incrementCart()" aria-label="Add Habanero Heat Wave to cart">+</button>
+            <button class="add-btn" onclick="addToCart('Habanero Heat Wave', 13.50)">+</button>
           </div>
         </div>
       </div>
 
       <!-- Item 3 -->
-      <div class="menu-card" data-category="sides">
+      <div class="menu-card" data-category="sides" data-name="Truffle Garlic Fries" data-price="6.99">
         <div class="card-img-wrapper">
-          <img 
-            src="{{ '/assets/images/3.jpg' | relative_url }}" 
-            alt="Truffle Garlic Fries" 
-            class="stacked-image"
-            width="1200"
-            height="800"
-            loading="lazy"
-          >
+          <img src="{{ '/assets/images/3.jpg' | relative_url }}" alt="Truffle Garlic Fries" class="stacked-image" width="1200" height="800" loading="lazy">
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -98,23 +77,16 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Hand-cut russet potatoes tossed in black truffle oil, fresh minced garlic, and aged parmesan.</p>
           <div class="card-footer">
             <span class="dietary-tag">Vegetarian</span>
-            <button class="add-btn" onclick="incrementCart()" aria-label="Add Truffle Garlic Fries to cart">+</button>
+            <button class="add-btn" onclick="addToCart('Truffle Garlic Fries', 6.99)">+</button>
           </div>
         </div>
       </div>
 
       <!-- Item 4 -->
-      <div class="menu-card" data-category="shakes">
+      <div class="menu-card" data-category="shakes" data-name="Biscoff Shake" data-price="7.50">
         <div class="card-img-wrapper">
           <span class="badge">Must Try</span>
-          <img 
-            src="{{ '/assets/images/4.jpg' | relative_url }}" 
-            alt="Biscoff Cookie Butter Shake" 
-            class="stacked-image"
-            width="1200"
-            height="800"
-            loading="lazy"
-          >
+          <img src="{{ '/assets/images/4.jpg' | relative_url }}" alt="Biscoff Shake" class="stacked-image" width="1200" height="800" loading="lazy">
         </div>
         <div class="card-content">
           <div class="item-header">
@@ -124,7 +96,7 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Thick hand-spun vanilla soft serve blended with crushed Lotus Biscoff cookies and topped with whipped cream.</p>
           <div class="card-footer">
             <span class="dietary-tag">Sweet Tooth</span>
-            <button class="add-btn" onclick="incrementCart()" aria-label="Add Biscoff Shake to cart">+</button>
+            <button class="add-btn" onclick="addToCart('Biscoff Shake', 7.50)">+</button>
           </div>
         </div>
       </div>
@@ -132,41 +104,187 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
   </div>
 </section>
 
+<!-- FLOATING CART / CHECKOUT BAR -->
+<div class="floating-cart-bar" id="floatingCartBar" style="display: none;">
+  <div class="wrapper cart-bar-content" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #1a1a1e; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; margin-bottom: 2rem;">
+    <div>
+      <span id="cartCountBadge" style="font-weight: bold; background: #e50914; padding: 2px 8px; border-radius: 6px;">0 items</span>
+      <span id="cartTotalSum" style="margin-left: 10px; font-weight: 600;">$0.00</span>
+    </div>
+    <button onclick="openCartModal()" style="background: #25d366; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: bold; cursor: pointer;">Review & Edit Order</button>
+  </div>
+</div>
+
+<!-- CART & ORDER PASS MODAL -->
+<div id="cartModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 1000; justify-content: center; align-items: center; padding: 1rem;">
+  <div style="background: #141417; width: 100%; max-width: 500px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 2rem; color: #fff; position: relative;">
+    <button onclick="closeCartModal()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #aaa; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    
+    <div id="cartModalBody">
+      <h2 style="margin-bottom: 1rem; font-size: 1.4rem;">Edit Your Table Order</h2>
+      <div id="cartItemsList" style="max-height: 240px; overflow-y: auto; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">
+        <!-- Dynamic Interactive Items Go Here -->
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1.5rem;">
+        <span>Total:</span>
+        <span id="modalTotalPrice">$0.00</span>
+      </div>
+      <button onclick="generateOrderPass()" style="width: 100%; background: #e50914; color: #fff; border: none; padding: 0.9rem; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer;">Generate Counter Pickup Pass</button>
+    </div>
+
+    <div id="orderPassBody" style="display: none; text-align: center;">
+      <div style="background: rgba(37, 211, 102, 0.1); border: 1px solid #25d366; color: #25d366; padding: 0.5rem; border-radius: 6px; display: inline-block; margin-bottom: 1rem; font-size: 0.9rem; font-weight: bold;">Order Confirmed for Table <span id="passTableNum">1</span></div>
+      <h2 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -1px;" id="passOrderNum">#000</h2>
+      <p style="color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem;">Take this screen to the counter to pay and collect your food.</p>
+      
+      <div id="passItemsSummary" style="text-align: left; background: #1f1f24; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; color: #ddd;">
+        <!-- Summary list -->
+      </div>
+      
+      <button onclick="resetOrder()" style="background: transparent; color: #888; border: 1px solid #444; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer;">Close & Start New Order</button>
+    </div>
+  </div>
+</div>
+
 <!-- GOOGLE MAP LOCATION SECTION -->
 <section class="map-section" id="locations" style="padding: 2rem 0 4rem 0;">
   <div class="wrapper">
-    <div class="map-container-wrapper" style="background: #1a1a1e; padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-      
-      <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: #f1f2f6; font-weight: 800; letter-spacing: -0.5px;">
-        Our Los Angeles Kitchen
-      </h2>
-      
-      <!-- Responsive Map Container -->
+    <div class="map-container-wrapper" style="background: #1a1a1e; padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
+      <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: #f1f2f6; font-weight: 800;">Our Los Angeles Kitchen</h2>
       <div style="position: relative; width: 100%; height: 350px; border-radius: 8px; overflow: hidden;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.748729352697!2d-118.24532292346747!3d34.05223421774357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c648fa5d4837%3A0xe3804e54910nid!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1787117452866!5m2!1sen!2sus"
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          title="CaliCrush Location Map in Los Angeles California">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.748729352697!2d-118.24532292346747!3d34.05223421774357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c648fa5d4837%3A0xe3804e54910nid!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1787117452866!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
-
     </div>
   </div>
 </section>
 
 <script>
-  let cartCount = 0;
-  function incrementCart() {
-    cartCount++;
-    const summarySpan = document.querySelector('.cart-summary span');
-    if (summarySpan) {
-      summarySpan.innerText = cartCount + (cartCount === 1 ? ' item' : ' items');
+  let cart = [];
+  let tableNumber = "1";
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const t = urlParams.get('table');
+    if (t) {
+      tableNumber = t;
+      document.getElementById('tableBadge').innerText = `📍 Table ${t} Connected (Secure Session)`;
     }
+  });
+
+  function addToCart(name, price) {
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name, price, qty: 1 });
+    }
+    updateCartUI();
+  }
+
+  function changeQuantity(name, amount) {
+    const item = cart.find(i => i.name === name);
+    if (item) {
+      item.qty += amount;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.name !== name);
+      }
+    }
+    updateCartUI();
+    
+    // If modal is open and cart becomes empty through editing, close it
+    if (cart.length === 0) {
+      closeCartModal();
+    } else {
+      renderCartModalItems();
+    }
+  }
+
+  function updateCartUI() {
+    const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+    const bar = document.getElementById('floatingCartBar');
+    if (totalCount > 0) {
+      bar.style.display = 'block';
+      document.getElementById('cartCountBadge').innerText = totalCount + (totalCount === 1 ? ' item' : ' items');
+      document.getElementById('cartTotalSum').innerText = '$' + totalPrice.toFixed(2);
+    } else {
+      bar.style.display = 'none';
+    }
+  }
+
+  function renderCartModalItems() {
+    const listEl = document.getElementById('cartItemsList');
+    listEl.innerHTML = '';
+    let totalPrice = 0;
+
+    if (cart.length === 0) {
+      closeCartModal();
+      return;
+    }
+
+    cart.forEach(item => {
+      totalPrice += item.price * item.qty;
+      listEl.innerHTML += `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 0.95rem; background: #1a1a1e; padding: 0.6rem 0.8rem; border-radius: 8px;">
+          <div>
+            <div style="font-weight: 600; margin-bottom: 2px;">${item.name}</div>
+            <div style="color: #aaa; font-size: 0.85rem;">$${item.price.toFixed(2)} each</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; align-items: center; background: #26262b; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+              <button onclick="changeQuantity('${item.name}', -1)" style="background: none; border: none; color: #fff; padding: 2px 8px; cursor: pointer; font-weight: bold;">-</button>
+              <span style="padding: 0 4px; font-size: 0.9rem; font-weight: bold;">${item.qty}</span>
+              <button onclick="changeQuantity('${item.name}', 1)" style="background: none; border: none; color: #fff; padding: 2px 8px; cursor: pointer; font-weight: bold;">+</button>
+            </div>
+            <span style="font-weight: bold; min-width: 60px; text-align: right;">$${(item.price * item.qty).toFixed(2)}</span>
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById('modalTotalPrice').innerText = '$' + totalPrice.toFixed(2);
+  }
+
+  function openCartModal() {
+    renderCartModalItems();
+    document.getElementById('cartModalBody').style.display = 'block';
+    document.getElementById('orderPassBody').style.display = 'none';
+    document.getElementById('cartModal').style.display = 'flex';
+  }
+
+  function closeCartModal() {
+    document.getElementById('cartModal').style.display = 'none';
+  }
+
+  function generateOrderPass() {
+    if (cart.length === 0) return;
+    
+    // Save snapshot before clearing
+    const finalItemsSnapshot = [...cart];
+    
+    const randomOrderNum = '#' + Math.floor(100 + Math.random() * 900);
+    document.getElementById('passOrderNum').innerText = randomOrderNum;
+    document.getElementById('passTableNum').innerText = tableNumber;
+
+    const summaryEl = document.getElementById('passItemsSummary');
+    summaryEl.innerHTML = '';
+    
+    finalItemsSnapshot.forEach(item => {
+      summaryEl.innerHTML += `<div>• ${item.qty}x ${item.name} ($${(item.price * item.qty).toFixed(2)})</div>`;
+    });
+
+    // Switch view inside modal
+    document.getElementById('cartModalBody').style.display = 'none';
+    document.getElementById('orderPassBody').style.display = 'block';
+    
+    // Clear cart and update bar without closing the modal
+    cart = [];
+    updateCartUI();
+  }
+
+  function resetOrder() {
+    closeCartModal();
   }
 
   function filterMenu(category, event) {
