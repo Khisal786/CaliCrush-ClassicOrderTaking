@@ -40,7 +40,10 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Two crispy edge smash patties, double American cheese, caramelized onions, and signature crush sauce on a toasted brioche bun.</p>
           <div class="card-footer">
             <span class="dietary-tag">Halal Available</span>
-            <button class="add-btn" onclick="addToCart('The Cali Double', 12.99)">+</button>
+            <div style="position: relative; display: inline-block;">
+              <button class="add-btn" onclick="addToCart('The Cali Double', 12.99)">+</button>
+              <span class="item-badge" id="badge-The-Cali-Double" style="display: none; position: absolute; top: -6px; right: -6px; background: #e50914; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; border: 2px solid #141417;">0</span>
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +62,10 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Smash patty, pepper jack cheese, fire-roasted jalapeños, crispy onions, and ghost pepper aioli.</p>
           <div class="card-footer">
             <span class="dietary-tag">Spicy 🌶️</span>
-            <button class="add-btn" onclick="addToCart('Habanero Heat Wave', 13.50)">+</button>
+            <div style="position: relative; display: inline-block;">
+              <button class="add-btn" onclick="addToCart('Habanero Heat Wave', 13.50)">+</button>
+              <span class="item-badge" id="badge-Habanero-Heat-Wave" style="display: none; position: absolute; top: -6px; right: -6px; background: #e50914; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; border: 2px solid #141417;">0</span>
+            </div>
           </div>
         </div>
       </div>
@@ -77,7 +83,10 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Hand-cut russet potatoes tossed in black truffle oil, fresh minced garlic, and aged parmesan.</p>
           <div class="card-footer">
             <span class="dietary-tag">Vegetarian</span>
-            <button class="add-btn" onclick="addToCart('Truffle Garlic Fries', 6.99)">+</button>
+            <div style="position: relative; display: inline-block;">
+              <button class="add-btn" onclick="addToCart('Truffle Garlic Fries', 6.99)">+</button>
+              <span class="item-badge" id="badge-Truffle-Garlic-Fries" style="display: none; position: absolute; top: -6px; right: -6px; background: #e50914; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; border: 2px solid #141417;">0</span>
+            </div>
           </div>
         </div>
       </div>
@@ -96,7 +105,10 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
           <p>Thick hand-spun vanilla soft serve blended with crushed Lotus Biscoff cookies and topped with whipped cream.</p>
           <div class="card-footer">
             <span class="dietary-tag">Sweet Tooth</span>
-            <button class="add-btn" onclick="addToCart('Biscoff Shake', 7.50)">+</button>
+            <div style="position: relative; display: inline-block;">
+              <button class="add-btn" onclick="addToCart('Biscoff Shake', 7.50)">+</button>
+              <span class="item-badge" id="badge-Biscoff-Shake" style="display: none; position: absolute; top: -6px; right: -6px; background: #e50914; color: #fff; font-size: 0.7rem; font-weight: bold; padding: 2px 6px; border-radius: 10px; border: 2px solid #141417;">0</span>
+            </div>
           </div>
         </div>
       </div>
@@ -104,15 +116,16 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
   </div>
 </section>
 
-<!-- FLOATING CART / CHECKOUT BAR -->
-<div class="floating-cart-bar" id="floatingCartBar" style="display: none;">
-  <div class="wrapper cart-bar-content" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: #1a1a1e; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #fff; margin-bottom: 2rem;">
+<!-- FLOATING MOVABLE CART BUBBLE -->
+<div id="floatingCartBubble" style="display: none; position: fixed; bottom: 30px; right: 20px; z-index: 999; background: #1a1a1e; border: 2px solid #25d366; color: #fff; border-radius: 50px; padding: 0.6rem 1.1rem; box-shadow: 0 8px 25px rgba(0,0,0,0.5); cursor: grab; align-items: center; gap: 10px; user-select: none; touch-action: none;">
+  <div style="display: flex; align-items: center; gap: 8px; pointer-events: none;">
+    <span style="font-size: 1.2rem;">🛒</span>
     <div>
-      <span id="cartCountBadge" style="font-weight: bold; background: #e50914; padding: 2px 8px; border-radius: 6px;">0 items</span>
-      <span id="cartTotalSum" style="margin-left: 10px; font-weight: 600;">$0.00</span>
+      <div id="bubbleCount" style="font-size: 0.75rem; color: #aaa; font-weight: bold; line-height: 1;">0 items</div>
+      <div id="bubbleTotal" style="font-size: 0.95rem; font-weight: 800; color: #25d366; line-height: 1.2;">$0.00</div>
     </div>
-    <button onclick="openCartModal()" style="background: #25d366; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: bold; cursor: pointer;">Review & Edit Order</button>
   </div>
+  <button onclick="openCartModal()" style="background: #25d366; color: #141417; border: none; padding: 0.4rem 0.8rem; border-radius: 30px; font-weight: 900; font-size: 0.85rem; cursor: pointer;">View</button>
 </div>
 
 <!-- CART & ORDER PASS MODAL -->
@@ -169,6 +182,8 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
       tableNumber = t;
       document.getElementById('tableBadge').innerText = `📍 Table ${t} Connected (Secure Session)`;
     }
+
+    initDraggableBubble();
   });
 
   function addToCart(name, price) {
@@ -191,7 +206,6 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
     }
     updateCartUI();
     
-    // If modal is open and cart becomes empty through editing, close it
     if (cart.length === 0) {
       closeCartModal();
     } else {
@@ -203,14 +217,31 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
     const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-    const bar = document.getElementById('floatingCartBar');
+    const bubble = document.getElementById('floatingCartBubble');
+    
     if (totalCount > 0) {
-      bar.style.display = 'block';
-      document.getElementById('cartCountBadge').innerText = totalCount + (totalCount === 1 ? ' item' : ' items');
-      document.getElementById('cartTotalSum').innerText = '$' + totalPrice.toFixed(2);
+      bubble.style.display = 'flex';
+      document.getElementById('bubbleCount').innerText = totalCount + (totalCount === 1 ? ' item' : ' items');
+      document.getElementById('bubbleTotal').innerText = '$' + totalPrice.toFixed(2);
     } else {
-      bar.style.display = 'none';
+      bubble.style.display = 'none';
     }
+
+    // Update individual item notification badges on menu cards
+    const menuItems = ["The Cali Double", "Habanero Heat Wave", "Truffle Garlic Fries", "Biscoff Shake"];
+    menuItems.forEach(name => {
+      const badgeId = 'badge-' + name.replace(/ /g, '-');
+      const badgeEl = document.getElementById(badgeId);
+      if (badgeEl) {
+        const cartItem = cart.find(i => i.name === name);
+        if (cartItem && cartItem.qty > 0) {
+          badgeEl.innerText = cartItem.qty;
+          badgeEl.style.display = 'inline-block';
+        } else {
+          badgeEl.style.display = 'none';
+        }
+      }
+    });
   }
 
   function renderCartModalItems() {
@@ -260,7 +291,6 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
   function generateOrderPass() {
     if (cart.length === 0) return;
     
-    // Save snapshot before clearing
     const finalItemsSnapshot = [...cart];
     
     const randomOrderNum = '#' + Math.floor(100 + Math.random() * 900);
@@ -274,11 +304,9 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
       summaryEl.innerHTML += `<div>• ${item.qty}x ${item.name} ($${(item.price * item.qty).toFixed(2)})</div>`;
     });
 
-    // Switch view inside modal
     document.getElementById('cartModalBody').style.display = 'none';
     document.getElementById('orderPassBody').style.display = 'block';
     
-    // Clear cart and update bar without closing the modal
     cart = [];
     updateCartUI();
   }
@@ -300,5 +328,71 @@ description: "Fresh-pressed 100% Angus beef smash burgers, crispy truffle fries,
         card.style.display = 'none';
       }
     });
+  }
+
+  // Draggable logic for mobile & desktop touch/mouse interaction
+  function initDraggableBubble() {
+    const bubble = document.getElementById('floatingCartBubble');
+    let isDragging = false;
+    let startX, startY, initialX, initialY;
+
+    function dragStart(e) {
+      if (e.target.tagName === 'BUTTON') return; // let view button click work normally
+      isDragging = true;
+      bubble.style.cursor = 'grabbing';
+      
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      
+      startX = clientX;
+      startY = clientY;
+      
+      const rect = bubble.getBoundingClientRect();
+      initialX = rect.left;
+      initialY = rect.top;
+      
+      // Switch from bottom/right positioning to fixed left/top tracking
+      bubble.style.bottom = 'auto';
+      bubble.style.right = 'auto';
+      bubble.style.left = initialX + 'px';
+      bubble.style.top = initialY + 'px';
+    }
+
+    function drag(e) {
+      if (!isDragging) return;
+      
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      
+      const dx = clientX - startX;
+      const dy = clientY - startY;
+      
+      let newX = initialX + dx;
+      let newY = initialY + dy;
+      
+      // Keep bubble within safe screen padding bounds
+      const maxX = window.innerWidth - bubble.offsetWidth - 10;
+      const maxY = window.innerHeight - bubble.offsetHeight - 10;
+      
+      newX = Math.max(10, Math.min(newX, maxX));
+      newY = Math.max(10, Math.min(newY, maxY));
+      
+      bubble.style.left = newX + 'px';
+      bubble.style.top = newY + 'px';
+    }
+
+    function dragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      bubble.style.cursor = 'grab';
+    }
+
+    bubble.addEventListener('mousedown', dragStart);
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('mouseup', dragEnd);
+
+    bubble.addEventListener('touchstart', dragStart, {passive: true});
+    window.addEventListener('touchmove', drag, {passive: true});
+    window.addEventListener('touchend', dragEnd);
   }
 </script>
